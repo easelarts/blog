@@ -8,17 +8,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="min-h-screen"> 
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body class="bg-teal-50">
 		<Header />
-		
-		<main class="flex flex-col justify-center items-center min-h-screen">
+		<main class="flex flex-col justify-center items-center">
 			<div class="flex flex-col justify-center items-center w-1/2 ">
 				<img src="/images/logo.svg" alt="Logo" class="w-100 h-100 mb-6 mt-10" />
-				<!-- <h1 class=" text-6xl font-bold pb-10 text-center">Easel Arts by Sarah Elizabeth</h1> -->
 				<p class="text-2xl md:text-4xl text-center">
 					Welcome to the Easel Arts by Sarah Elizabeth website! Feel free to have a look around, 
 					view my <a class="font-semibold text-teal-700 hover:underline underline-offset-2 decoration-2 decoration-teal-500" href="https://shop.easelartsbysarahelizabeth.co.uk" target="_blank">Shop</a>, 
