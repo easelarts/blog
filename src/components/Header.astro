@@ -3,10 +3,10 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header class="bg-slate-50 m-0 pt-0 pb-0 pl-4 pr-4 shadow">
-	<nav>
+<header class="bg-slate-100 m-0 mb-5 pt-0 pb-0 pl-4 pr-4 w-screen placeholder:shadow border-b border-b-slate-300">
+	<nav class="flex items-center justify-between">
 		<div class="flex justify-center items-center">
-			<a href="/"><img src="/images/logo.svg" alt="Logo" class=" w-16"/>
+			<a href="/"><img src="/images/logo.svg" alt="Logo" class="w-16"/>
 			</a>
 		</div>
 		<div class="internal-links">
@@ -16,13 +16,13 @@ import { SITE_TITLE } from '../consts';
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
 		<div class="social-links flex">
-			<a href="https://m.webtoo.ls/@asgtro" target="_blank">
+			<a href="https://m.webtoo.ls/@asgtro" class="pt-4 pb-4 pl-2 pr-2 border-b-4 border-solid border-transparent decoration-0" target="_blank">
 				<span class="sr-only">Follow Me on Facebook</span>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook" aria-hidden="true" width="32" height="32">
 					<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
 				</svg>
 			</a>
-			<a href="https://instagram.com/yourusername" target="_blank">
+			<a href="https://instagram.com/yourusername" class="pt-4 pb-4 pl-2 pr-2 border-b-4 border-solid border-transparent decoration-0" target="_blank">
 				<span class="sr-only">Follow Me on Instagram</span>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram" aria-hidden="true" width="32" height="32">
 					<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -34,29 +34,6 @@ import { SITE_TITLE } from '../consts';
 	</nav>
 </header>
 <style>
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	/* .social-links,
-	.social-links a {
-		display: flex;
-	} */
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;
