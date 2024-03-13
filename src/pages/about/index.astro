@@ -1,11 +1,9 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { useStoryblokApi } from '@storyblok/astro';
-import FormattedDate from '../../components/FormattedDate.astro';
 import { Debug } from 'astro:components';
 
 const storyblokApi = useStoryblokApi();
@@ -20,8 +18,8 @@ const content = data.story.content;
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="bg-teal-50">
-			<StoryblokComponent blok={content} updatedDate={data.story.published_at}>
+	<body class="bg-light-neutral dark:bg-dark-neutral text-light-text dark:text-dark-text">
+		<StoryblokComponent blok={content} updatedDate={data.story.published_at}>
 	</body>
 </html>
 

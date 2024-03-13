@@ -4,6 +4,7 @@ import storyblok from '@storyblok/astro';
 import { defineConfig } from 'astro/config';
 import { loadEnv } from 'vite';
 
+import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
 
 const env = loadEnv("", process.cwd(), 'STORYBLOK');
@@ -15,6 +16,7 @@ export default defineConfig({
     mdx(), 
     sitemap(), 
     tailwind(),
+    preact(),
     storyblok({
       accessToken: env.STORYBLOK_TOKEN,
       components: {
