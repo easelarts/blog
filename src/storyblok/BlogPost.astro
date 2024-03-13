@@ -1,12 +1,19 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro'
+import Layout from '../layouts/BlogPost.astro'
+import BlogPostList from './BlogPostList.astro'
 
-const { blok } = Astro.props
+const { blok, date } = Astro.props
 const content = renderRichText(blok.content)
 ---
 
-<article {...storyblokEditable(blok)}>
-  <h1>{blok.title}</h1>
-  <p>{blok.description}</p>
+
+<Layout
+	title={blok.title}
+	description={blok.description}
+	heroImage={blok.image.filename}
+	pubDate={new Date(date)}
+  {...storyblokEditable(blok)}
+>
   <Fragment set:html={content} />
-</article>
+</Layout>

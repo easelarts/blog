@@ -33,6 +33,6 @@ const story = data.story;
     <title>Storyblok & Astro</title>
   </head>
   <body>
-    <StoryblokComponent blok={story.content} />
+    <StoryblokComponent blok={story.content} date={story.published_at}>
   </body>
 </html>
