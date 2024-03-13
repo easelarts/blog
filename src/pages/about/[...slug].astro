@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   const sbApi = useStoryblokApi();
 
   const { data } = await sbApi.get("cdn/stories", {
-    content_type: "blogPost",
+    content_type: "about",
     version: import.meta.env.DEV ? "draft" : "published",
   });
 
@@ -26,8 +26,8 @@ export async function getStaticPaths() {
 }
 
 const sbApi = useStoryblokApi();
-const { slug } = Astro.params;
-const { data } = await sbApi.get(`cdn/stories/blog/${slug}`, {
+// const { slug } = Astro.params;
+const { data } = await sbApi.get(`cdn/stories/about`, {
   version: import.meta.env.DEV ? "draft" : "published",
 });
 

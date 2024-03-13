@@ -4,7 +4,7 @@ import Layout from '../layouts/BlogPost.astro'
 import { Debug } from "astro:components"
 
 const { blok, updatedDate } = Astro.props
-const content = renderRichText(blok.content)
+const content = renderRichText(blok.description)
 ---
 
 <Layout

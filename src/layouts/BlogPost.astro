@@ -8,6 +8,8 @@ import FormattedDate from '../components/FormattedDate.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+console.log('pubDate', pubDate);
+console.log('updatedDate', updatedDate);
 ---
 
 <html lang="en">
@@ -23,16 +25,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					{heroImage && <img class="mx-auto rounded-lg shadow-md" width={1020} height={510} src={heroImage} alt="" />}
 					<div class="mb-4 py-4 text-center leading-none">
 						<div class="mb-2 text-slate-600">
-							<FormattedDate date={pubDate} />
+							{pubDate && <FormattedDate date={new Date(pubDate)} />}
 							{
 								updatedDate && (
-									<div class="italic">
-										Last updated on <FormattedDate date={updatedDate} />
+									<div class="italic mt-2">
+										Last updated on <FormattedDate date={new Date(updatedDate)} />
 									</div>
 								)
 							}
 						</div>
-						<h1 class="mb-2">{title}</h1>
+						<h1 class="mb-2 font-bold text-xl">{title}</h1>
 						<hr />
 					</div>
 				</div>
