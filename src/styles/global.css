@@ -18,21 +18,21 @@
 		0 16px 32px rgba(var(--gray), 33%); */
 /* } */
 @font-face {
-	font-family: 'Raleway';
-	src: url('/fonts/raleway-regular.ttf') format('truetype');
+	font-family: 'LibreBaskerville';
+	src: url('/fonts/LibreBaskerville-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Raleway';
-	src: url('/fonts/raleway-bold.ttf') format('truetype');
+	font-family: 'LibreBaskerville';
+	src: url('/fonts/LibreBaskerville-Bold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 body {
-	font-family: 'raleway', sans-serif;
+	font-family: 'LibreBaskerville', sans-serif;
 	margin: 0;
 	padding: 0;/*
 	text-align: left;

@@ -1,30 +1,42 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+
+const content: string[] = `
+Hi everyone, my name is Sarah Bailey and Easel Arts by Sarah Elizabeth shows my latest paintings and drawings. Just a little bit about me and how art has come into my life.
+Art has become more relevant in my life more recently. Previously, I did art at school, and occasionally on holidays when I had no distractions, then life happened, and free time was limited. I have been married to an amazing man for 29 years and have two fantastic adult children, Heidi and Jake.
+I qualified as a registered general nurse in 1995 and continued with adult medicine for 28 years, in addition to training to teach and continue my career in Further and Adult Education. I loved teaching but my free time became even less due to the marking and preparation, so holidays were relaxing but I didn’t feel I could focus enough to paint.
+Then two years ago I experienced a very difficult time at work along with significant debilitating menopause symptoms and as a result, my mental health deteriorated to the point I couldn’t and didn’t want to do anything. I was off work for a long time, and during this time my husband and children brought me art classes as a way to unwind, switch off the trauma from work and build me confidence through the paintings and drawings I completed.
+This was absolutely the lifeline I needed and slowly the passion to draw and paint returned along with a great support for my mental health. And actually, I can now say with confidence that I think I am quite good at it. Thi8sis big achievement as I am my own worst critique.
+So what do I draw and paint?
+Portrait paintings have become my passion and I never thought I could complete this type of artistry. The charcoal drawings in my gallery is what I drew for my Mum of her Mum (my Nan). It was emotive to draw as I was very close to my Nan, There is also I pet portrait of my gorgeous dog Murphy whilst he was looking out of our campervan window at Norfolk on a windy day.
+In addition to portraits, illustrations are another area of art I love to tinker with. Please look at the selection of these in my gallery.
+ 
+Finally, my first introduction and go to was watercolour and I am so pleased to be starting to work within this media again. My latest piece being a winters day walk at Attingham park, Shropshire late last year 2023.
+I hope you enjoy following and browsing through my work and please no negative, hurtful comments, but pleased to receive and questions you may have.
+ 
+Many thanks
+ 
+Sarah x
+ 
+Jake, Heidi, Lewis and Tiff  - This needs to be made relevant for each audience, facebook, Instagram and blog. Feel free to make comments or change it.
+ 
+
+
+`.split('\n');
+
+
 ---
+
 
 <Layout
 	title="About Me"
 	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
 	heroImage="/images/sarah-bailey.jpg"
+	pubDate={new Date()}
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
-
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+	<div class="prose">
+		{content.map((line, index) => (
+			<p class="pb-1">{line}</p>
+		))}
+	</div>
 </Layout>

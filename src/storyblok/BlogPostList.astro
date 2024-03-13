@@ -1,0 +1,58 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+import { useStoryblokApi } from '@storyblok/astro'
+import FormattedDate from '../components/FormattedDate.astro'
+import { Debug } from 'astro:components';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+  version: import.meta.env.DEV ? "draft" : "published",
+  content_type: 'blogPost',
+})
+
+const posts = data.stories.map(story => {
+  return {
+    title: story.content.title,
+    date: new Date(story.published_at).toLocaleDateString("en-US", {dateStyle: "full"}),
+    description: story.content.description,
+    slug: story.full_slug,
+		image: story.content.image,
+  }
+})
+
+
+
+const { blok } = Astro.props
+---
+
+<main class="flex flex-col items-center min-h-screen ">
+	<section class="w-4/5">
+		<ul class="flex flex-wrap list-none m-0 p-0" {...storyblokEditable(blok)}>
+			{
+				posts.map((post, index) => (
+					<li class={`${index === 0 ? 'w-full' : 'w-full md:w-1/2'} pl-2 pt-2 text-center md:text-left decoration-0 ease-linear duration-200 first:mb-0 md:first:mb-4 first:text-center  md:first:text-2xl `}>
+						<a class="m-0 text-slate-700" href={`/${post.slug}/`}>
+							{(post.image) && <img class=" w-auto mb-2 rounded-lg" src={post.image.filename} alt="" />}					
+							<h4 class="m-0 text-slate-900 leading-none">{post.title}</h4>
+							<FormattedDate date={new Date(post.date)} />
+						</a>
+						<hr class="border-slate-300"/>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</main>
+
+<!-- <ul {...storyblokEditable(blok)}>
+  {posts.map(post => (
+
+			
+    <li>
+      <time>{post.date}</time>
+      <a href={post.slug}>{post.title}</a>
+      <p>{post.description}</p>
+    </li>
+  ))}
+</ul> -->
