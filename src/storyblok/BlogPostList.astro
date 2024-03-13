@@ -2,6 +2,7 @@
 import { storyblokEditable } from '@storyblok/astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import FormattedDate from '../components/FormattedDate.astro'
+import BlogItem from '../components/BlogItem.astro'
 import { Debug } from 'astro:components';
 
 const storyblokApi = useStoryblokApi();
@@ -10,6 +11,14 @@ const { data } = await storyblokApi.get('cdn/stories', {
   version: import.meta.env.DEV ? "draft" : "published",
   content_type: 'blogPost',
 })
+
+interface Post {
+	title: string
+	date: string
+	description: string
+	slug: string
+	image: string
+}
 
 const posts = data.stories.map(story => {
   return {
@@ -21,24 +30,15 @@ const posts = data.stories.map(story => {
   }
 })
 
-
-
 const { blok } = Astro.props
 ---
 
-<main class="flex flex-col items-center min-h-screen ">
-	<section class="w-4/5">
-		<ul class="flex flex-wrap list-none m-0 p-0" {...storyblokEditable(blok)}>
+<main class="flex flex-col items-center min-h-screen w-full">
+	<section class="lg:w-5/12 w-4/5 ease-linear duration-200">
+		<ul class="flex flex-wrap list-none m-0 p-0 w-full" {...storyblokEditable(blok)}>
 			{
-				posts.map((post, index) => (
-					<li class={`${index === 0 ? 'w-full' : 'w-full md:w-1/2'} pl-2 pt-2 text-center decoration-0 ease-linear duration-200 first:mb-0 md:first:mb-4 first:text-center  md:first:text-2xl `}>
-						<a class="m-0 text-slate-700" href={`/${post.slug}/`}>
-							{(post.image) && <img class=" w-auto mb-2 rounded-lg" src={post.image.filename} alt="" />}					
-							<h4 class="m-0 text-slate-900 leading-none">{post.title}</h4>
-							<FormattedDate date={new Date(post.date)} />
-						</a>
-						<hr class="border-slate-300"/>
-					</li>
+				posts.map((post: Post, index: number) => (
+					<BlogItem post={post} index={index} />
 				))
 			}
 		</ul>
