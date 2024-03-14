@@ -1,6 +1,7 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import type { StoryBlokStory } from '../../types/StoryBlok.ts'
 import { Debug } from 'astro:components'
 
 export async function getStaticPaths() {
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
 
   
 
-  return stories.map((story) => {
+  return stories.map((story:StoryBlokStory) => {
     return {
       params: { slug: story.slug },
     };

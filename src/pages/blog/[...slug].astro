@@ -2,9 +2,7 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { Debug } from 'astro:components'
-// interface story {
-
-// }
+import type { StoryBlokStory } from '../../types/StoryBlok.ts'
 
 export async function getStaticPaths() {
   const sbApi = useStoryblokApi();
@@ -15,10 +13,8 @@ export async function getStaticPaths() {
   });
 
   const stories = Object.values(data.stories);
-
   
-
-  return stories.map((story) => {
+  return stories.map((story: StoryBlokStory) => {
     return {
       params: { slug: story.slug },
     };

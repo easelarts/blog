@@ -17,7 +17,7 @@ export default function ThemeToggle(): FunctionalComponent {
       });
     }
 
-    const headerLogo: HTMLImageElement = document.querySelector(".logo-header");
+    const headerLogo: HTMLImageElement = document.querySelector(".logo-header") as HTMLImageElement;
 
     headerLogo.src = headerLogo.src.replace(theme === "light" ? "dark" : "light", theme === "light" ? "light" : "dark");
 
