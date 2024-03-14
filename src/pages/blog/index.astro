@@ -22,8 +22,10 @@ const content = data.story.content;
 	</head>
 	<body class="bg-light-neutral dark:bg-dark-neutral">
 		<Header />
+		<div class=" min-h-fit">
 			<StoryblokComponent blok={content} updatedDate={data.story.published_at}>
-		<Footer />
+		</div>
+		<Footer />  
 	</body>
 </html>
 

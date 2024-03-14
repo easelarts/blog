@@ -33,7 +33,7 @@ const posts = data.stories.map(story => {
 const { blok } = Astro.props
 ---
 
-<main class="flex flex-col items-center min-h-screen w-full">
+<main class="flex flex-col items-center min-h-fit w-full">
 	<section class="lg:w-5/12 w-4/5 ease-linear duration-200">
 		<ul class="flex flex-wrap list-none m-0 p-0 w-full" {...storyblokEditable(blok)}>
 			{

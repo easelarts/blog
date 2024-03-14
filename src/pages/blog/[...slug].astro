@@ -2,6 +2,8 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { Debug } from 'astro:components'
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 import type { StoryBlokStory } from '../../types/StoryBlok.ts'
 
 export async function getStaticPaths() {
