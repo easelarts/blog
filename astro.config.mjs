@@ -4,6 +4,7 @@ import storyblok from '@storyblok/astro';
 import { defineConfig } from 'astro/config';
 import { loadEnv } from 'vite';
 
+import netlify from '@astrojs/netlify';
 import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
 
@@ -12,6 +13,10 @@ const env = loadEnv("", process.cwd(), 'STORYBLOK');
 // https://astro.build/config
 export default defineConfig({
   site: 'https://easelartsbysarahelizabeth.co.uk',
+  output: 'server',
+  adapter: netlify({
+    edgeMiddleware: true
+  }),
   integrations: [
     mdx(), 
     sitemap(), 

@@ -1,0 +1,14 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+
+const { post, index } = Astro.props;
+---
+
+<li class={`${index === 0 ? 'w-full' : 'w-full md:w-1/2'} pl-2 pt-2 text-center decoration-0 ease-linear duration-200 first:mb-0 md:first:mb-4 first:text-center  md:first:text-2xl `}>
+  <a class="m-0" href={`/${post.slug}/`}>
+    {(post.image) && <img class=" w-auto mb-2 rounded-lg" src={post.image.filename} alt="" />}					
+    <h4 class="m-0 text-light-text dark:text-dark-text leading-none">{post.title}</h4>
+    <FormattedDate date={new Date(post.date)} />
+  </a>
+  <hr class="border-light-text dark:border-dark-text"/>
+</li>
