@@ -1,0 +1,14 @@
+---
+type Props = {
+   imagePath: string;
+   altText: string;
+   title: string;
+   rotate: string;
+}
+
+const { imagePath, altText, title, rotate } = Astro.props as Props;
+---
+<div class=`${rotate} w-2/3 md:w-1/4 p-3 pb-5 bg-light-text dark:bg-dark-text`>
+    <img src={imagePath} alt={altText}/>
+    <p class="pt-4 text-center dark:text-light-text light:text-dark-text">{title}</p>
+</div>
