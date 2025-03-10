@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "": "file:",
     "@astrojs/check": "^0.5.2",
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/netlify": "^5.1.3",
